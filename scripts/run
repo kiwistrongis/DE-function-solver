@@ -1,0 +1,12 @@
+#!/bin/bash
+
+file=$1
+resultsFolder="results"
+echo -e "Running '$1' $2 times"
+
+base=$(basename "$file")
+
+for (( i=1; i<=$2; i++))
+do
+	./solver $file >> $resultsFolder/${base%%.*}.log &
+done
